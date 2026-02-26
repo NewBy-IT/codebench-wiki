@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oxanium:wght@200..800&display=swap');
 
 :root {
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+
   --bg:        #1e2029;
   --bg2:       #282a36;
   --card:      #2d2f3e;
@@ -58,14 +63,16 @@ body::before {
 .header {
   position: fixed;
   top: 0; left: 0; right: 0;
-  height: var(--header-h);
+  height: calc(var(--header-h) + var(--safe-top));
   background: rgba(30, 32, 41, 0.85);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
   z-index: 100;
   display: flex;
   align-items: center;
-  padding: 0 24px;
+  padding: var(--safe-top) 24px 0;
+  padding-left: calc(24px + var(--safe-left));
+  padding-right: calc(24px + var(--safe-right));
   gap: 20px;
 }
 
@@ -175,22 +182,22 @@ body::before {
 
 .layout {
   display: flex;
-  padding-top: var(--header-h);
+  padding-top: calc(var(--header-h) + var(--safe-top));
   min-height: 100vh;
   position: relative;
-  z-index: 1;
 }
 
 .sidebar {
   position: fixed;
-  top: var(--header-h);
+  top: calc(var(--header-h) + var(--safe-top));
   left: 0;
   width: var(--sidebar-w);
-  height: calc(100vh - var(--header-h));
+  height: calc(100vh - (var(--header-h) + var(--safe-top)));
   overflow-y: auto;
   background: rgba(30, 32, 41, 0.6);
   border-right: 1px solid var(--border);
-  padding: 20px 0;
+  padding: 20px 0 var(--safe-bottom);
+  padding-left: var(--safe-left);
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -343,10 +350,10 @@ body::before {
 .sidebar-nav a.active .num { color: var(--primary); opacity: 0.7; }
 
 .content {
-  margin-left: var(--sidebar-w);
+  margin-left: calc(var(--sidebar-w) + var(--safe-left));
   flex: 1;
   max-width: 860px;
-  padding: 36px 48px 80px;
+  padding: 36px 48px calc(80px + var(--safe-bottom));
 }
 
 .beta-warning {
@@ -784,8 +791,8 @@ kbd {
 
 .back-top {
   position: fixed;
-  bottom: 28px;
-  right: 28px;
+  bottom: calc(28px + var(--safe-bottom));
+  right: calc(28px + var(--safe-right));
   width: 42px;
   height: 42px;
   background: var(--primary10);
@@ -808,8 +815,9 @@ kbd {
 mark { background: rgba(255,184,108,0.3); color: var(--fg); border-radius: 3px; padding: 0 2px; }
 
 .footer {
-  margin-left: var(--sidebar-w);
+  margin-left: calc(var(--sidebar-w) + var(--safe-left));
   padding: 24px 48px;
+  padding-bottom: calc(24px + var(--safe-bottom));
   border-top: 1px solid var(--border);
   display: flex;
   align-items: center;
@@ -822,11 +830,11 @@ mark { background: rgba(255,184,108,0.3); color: var(--fg); border-radius: 3px; 
 .footer a { color: var(--primary); }
 
 @media (max-width: 900px) {
-  .content { padding: 24px 24px 60px; }
+  .content { padding: 24px calc(24px + var(--safe-right)) calc(60px + var(--safe-bottom)) calc(24px + var(--safe-left)); }
 }
 
 @media (max-width: 768px) {
-  .header { padding: 0 14px; gap: 10px; }
+  .header { padding: var(--safe-top) 14px 0; padding-left: calc(14px + var(--safe-left)); padding-right: calc(14px + var(--safe-right)); gap: 10px; }
   .header-wiki-label { display: none; }
   .header-version { display: none; }
   .header-divider { display: none; }
@@ -844,6 +852,8 @@ mark { background: rgba(255,184,108,0.3); color: var(--fg); border-radius: 3px; 
   .sidebar {
     transform: translateX(-100%);
     width: 280px;
+    background: var(--bg2);
+    border-right: none;
   }
   .sidebar.open {
     transform: translateX(0);
@@ -854,11 +864,11 @@ mark { background: rgba(255,184,108,0.3); color: var(--fg); border-radius: 3px; 
 
   .content {
     margin-left: 0;
-    padding: 20px 16px 60px;
+    padding: 20px calc(16px + var(--safe-right)) calc(60px + var(--safe-bottom)) calc(16px + var(--safe-left));
   }
   .footer {
     margin-left: 0;
-    padding: 18px 16px;
+    padding: 18px calc(16px + var(--safe-right)) calc(18px + var(--safe-bottom)) calc(16px + var(--safe-left));
     flex-direction: column;
     align-items: flex-start;
     gap: 6px;
@@ -887,17 +897,17 @@ mark { background: rgba(255,184,108,0.3); color: var(--fg); border-radius: 3px; 
   .stack-pills { gap: 6px; }
   .pill { font-size: 0.72rem; padding: 4px 9px; }
 
-  .back-top { bottom: 16px; right: 14px; }
+  .back-top { bottom: calc(16px + var(--safe-bottom)); right: calc(14px + var(--safe-right)); }
 
   .beta-warning { padding: 14px 16px; gap: 10px; }
   .beta-warning p { font-size: 0.82rem; }
 }
 
 @media (max-width: 420px) {
-  .header { padding: 0 10px; gap: 7px; }
+  .header { padding: var(--safe-top) 10px 0; padding-left: calc(10px + var(--safe-left)); padding-right: calc(10px + var(--safe-right)); gap: 7px; }
   .header-logo { font-size: 1rem; gap: 7px; }
 
-  .content { padding: 16px 12px 56px; }
+  .content { padding: 16px calc(12px + var(--safe-right)) calc(56px + var(--safe-bottom)) calc(12px + var(--safe-left)); }
 
   .page-title h1 { font-size: 1.45rem; }
 
