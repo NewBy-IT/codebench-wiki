@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CodeBench Wiki — Documentation</title>
+  <meta name="description" content="Official CodeBench documentation — iPad code editor. Beta v1.0.0" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffb86c' stroke-width='2'%3E%3Cpolyline points='16 18 22 12 16 6'/%3E%3Cpolyline points='8 6 2 12 8 18'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oxanium:wght@200..800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="header">
+  <div class="header-logo">
+    <div class="icon-wrap">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+      </svg>
+    </div>
+    CodeBench<span class="beta-tag">BETA</span>
+  </div>
+
+  <div class="header-divider"></div>
+  <span class="header-wiki-label">Wiki</span>
+  <span class="header-version">v1.0.0 (beta)</span>
+
+  <div class="header-spacer"></div>
+
+  <div class="lang-switcher">
+    <button class="lang-btn" data-lang-target="en">EN</button>
+    <button class="lang-btn" data-lang-target="ru">RU</button>
+  </div>
+
+  <a href="https://codebench.newby-it.com" class="header-back-btn" target="_blank" rel="noopener">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+    </svg>
+    <span data-lang="en">Main Site</span>
+    <span data-lang="ru">Главный сайт</span>
+  </a>
+
+  <button class="hamburger" aria-label="Menu">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </button>
+</header>
+
+<div class="sidebar-overlay"></div>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="search-wrap">
+      <div class="search-input-wrap">
+        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input type="text" id="search-input" autocomplete="off"
+          data-placeholder-en="Search keywords…"
+          data-placeholder-ru="Поиск по ключевым словам…"
+          placeholder="Search keywords…" />
+        <div class="search-results" id="search-results"></div>
+      </div>
+    </div>
+
+    <span class="sidebar-section-label">
+      <span data-lang="en">Documentation</span>
+      <span data-lang="ru">Документация</span>
+    </span>
+    <nav class="sidebar-nav">
+      <a href="#intro"><span class="num">00</span><span data-lang="en">Overview</span><span data-lang="ru">Обзор</span></a>
+      <a href="#s1"><span class="num">01</span><span data-lang="en">Getting Started</span><span data-lang="ru">Начало работы</span></a>
+      <a href="#s2"><span class="num">02</span><span data-lang="en">Editor Interface</span><span data-lang="ru">Интерфейс редактора</span></a>
+      <a href="#s3"><span class="num">03</span><span data-lang="en">Project Management</span><span data-lang="ru">Управление проектами</span></a>
+      <a href="#s4"><span class="num">04</span><span data-lang="en">Code Editor</span><span data-lang="ru">Редактор кода</span></a>
+      <a href="#s5"><span class="num">05</span><span data-lang="en">Live Preview</span><span data-lang="ru">Предпросмотр</span></a>
+      <a href="#s6"><span class="num">06</span><span data-lang="en">Terminal</span><span data-lang="ru">Терминал</span></a>
+      <a href="#s7"><span class="num">07</span><span data-lang="en">Search</span><span data-lang="ru">Поиск</span></a>
+      <a href="#s8"><span class="num">08</span><span data-lang="en">File Management</span><span data-lang="ru">Работа с файлами</span></a>
+      <a href="#s9"><span class="num">09</span><span data-lang="en">Import &amp; Export</span><span data-lang="ru">Импорт и экспорт</span></a>
+      <a href="#s10"><span class="num">10</span><span data-lang="en">Files App (iOS)</span><span data-lang="ru">Приложение «Файлы»</span></a>
+      <a href="#s11"><span class="num">11</span><span data-lang="en">Image Viewer</span><span data-lang="ru">Просмотр изображений</span></a>
+      <a href="#s12"><span class="num">12</span><span data-lang="en">SVG Editor</span><span data-lang="ru">SVG-редактор</span></a>
+      <a href="#s13"><span class="num">13</span><span data-lang="en">Settings</span><span data-lang="ru">Настройки</span></a>
+      <a href="#s14"><span class="num">14</span><span data-lang="en">Keyboard Shortcuts</span><span data-lang="ru">Горячие клавиши</span></a>
+      <a href="#s15"><span class="num">15</span><span data-lang="en">Supported Languages</span><span data-lang="ru">Поддерживаемые языки</span></a>
+      <a href="#s16"><span class="num">16</span><span data-lang="en">Architecture</span><span data-lang="ru">Архитектура</span></a>
+    </nav>
+  </aside>
+
+  <main class="content">
+
+    <div class="beta-warning">
+      <span class="warn-icon">⚠️</span>
+      <div>
+        <strong>
+          <span data-lang="en">Beta v1.0.0 — This is NOT a full IDE!</span>
+          <span data-lang="ru">Beta v1.0.0 — Это не полноценная IDE!</span>
+        </strong>
+        <p>
+          <span data-lang="en">CodeBench is in beta testing. The app works great as a <strong>quick code editor</strong> on iPad — for quick edits, HTML/CSS/JS previews and small projects. However, it cannot yet be called a full IDE: some features are still in development, bugs or instability may occur.</span>
+          <span data-lang="ru">CodeBench находится в стадии бета-тестирования. Приложение отлично подходит как <strong>быстрый редактор кода</strong> на iPad — для правок, просмотра HTML/CSS/JS и небольших проектов. Однако на данном этапе его нельзя назвать полноценной IDE: некоторые функции ещё в разработке, возможны ошибки и нестабильная работа.</span>
+        </p>
+        <p>
+          <span data-lang="en">We are actively working on improvements. Thank you for using CodeBench in beta! 🚀</span>
+          <span data-lang="ru">Мы активно работаем над улучшениями. Спасибо, что используете CodeBench на этапе бета! 🚀</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="page-title" id="intro">
+      <div class="badge">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        CodeBench Wiki
+      </div>
+      <h1>
+        <span data-lang="en">Documentation</span>
+        <span data-lang="ru">Документация</span>
+      </h1>
+      <p>
+        <span data-lang="en">Complete guide to using CodeBench — a code editor for iPad. Version <strong style="color:var(--primary)">1.0.0 (beta)</strong>.</span>
+        <span data-lang="ru">Полное руководство по использованию CodeBench — редактора кода для iPad. Версия <strong style="color:var(--primary)">1.0.0 (beta)</strong>.</span>
+      </p>
+    </div>
+
+    <div class="toc-card">
+      <h3>
+        <span data-lang="en">Contents</span>
+        <span data-lang="ru">Содержание</span>
+      </h3>
+      <div class="toc-grid">
+        <a href="#s1"><span class="toc-num">01</span><span data-lang="en">Getting Started</span><span data-lang="ru">Начало работы</span></a>
+        <a href="#s2"><span class="toc-num">02</span><span data-lang="en">Editor Interface</span><span data-lang="ru">Интерфейс редактора</span></a>
+        <a href="#s3"><span class="toc-num">03</span><span data-lang="en">Project Management</span><span data-lang="ru">Управление проектами</span></a>
+        <a href="#s4"><span class="toc-num">04</span><span data-lang="en">Code Editor</span><span data-lang="ru">Редактор кода</span></a>
+        <a href="#s5"><span class="toc-num">05</span><span data-lang="en">Live Preview</span><span data-lang="ru">Предпросмотр</span></a>
+        <a href="#s6"><span class="toc-num">06</span><span data-lang="en">Terminal</span><span data-lang="ru">Терминал</span></a>
+        <a href="#s7"><span class="toc-num">07</span><span data-lang="en">Search</span><span data-lang="ru">Поиск</span></a>
+        <a href="#s8"><span class="toc-num">08</span><span data-lang="en">File Management</span><span data-lang="ru">Работа с файлами</span></a>
+        <a href="#s9"><span class="toc-num">09</span><span data-lang="en">Import &amp; Export</span><span data-lang="ru">Импорт и экспорт</span></a>
+        <a href="#s10"><span class="toc-num">10</span><span data-lang="en">Files App (iOS)</span><span data-lang="ru">Приложение «Файлы»</span></a>
+        <a href="#s11"><span class="toc-num">11</span><span data-lang="en">Image Viewer</span><span data-lang="ru">Просмотр изображений</span></a>
+        <a href="#s12"><span class="toc-num">12</span><span data-lang="en">SVG Editor</span><span data-lang="ru">SVG-редактор</span></a>
+        <a href="#s13"><span class="toc-num">13</span><span data-lang="en">Settings</span><span data-lang="ru">Настройки</span></a>
+        <a href="#s14"><span class="toc-num">14</span><span data-lang="en">Keyboard Shortcuts</span><span data-lang="ru">Горячие клавиши</span></a>
+        <a href="#s15"><span class="toc-num">15</span><span data-lang="en">Supported Languages</span><span data-lang="ru">Поддерживаемые языки</span></a>
+        <a href="#s16"><span class="toc-num">16</span><span data-lang="en">Architecture</span><span data-lang="ru">Архитектура</span></a>
+      </div>
+    </div>
+
+    <section class="section" id="s1">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <h2><span data-lang="en">Getting Started</span><span data-lang="ru">Начало работы</span></h2>
+      </div>
+
+      <div class="lang-block" data-lang="en">
+        <p>When first launched, CodeBench shows a 4-page welcome onboarding:</p>
+        <div class="card-grid">
+          <div class="mini-card"><span class="mc-icon">👋</span><strong>Page 1</strong><span>Welcome &amp; brief app description</span></div>
+          <div class="mini-card"><span class="mc-icon">⚡</span><strong>Page 2</strong><span>Overview of key features</span></div>
+          <div class="mini-card"><span class="mc-icon">🧪</span><strong>Page 3</strong><span>Beta version information</span></div>
+          <div class="mini-card"><span class="mc-icon">💬</span><strong>Page 4</strong><span>Community links (Telegram, support)</span></div>
+        </div>
+        <p>After onboarding, the <strong>project list</strong> opens — the main screen of the app.</p>
+      </div>
+
+      <div class="lang-block" data-lang="ru">
+        <p>При первом запуске CodeBench показывает приветственный экран-онбординг из 4 страниц:</p>
+        <div class="card-grid">
+          <div class="mini-card"><span class="mc-icon">👋</span><strong>Страница 1</strong><span>Приветствие и краткое описание приложения</span></div>
+          <div class="mini-card"><span class="mc-icon">⚡</span><strong>Страница 2</strong><span>Обзор ключевых функций</span></div>
+          <div class="mini-card"><span class="mc-icon">🧪</span><strong>Страница 3</strong><span>Информация о бета-версии</span></div>
+          <div class="mini-card"><span class="mc-icon">💬</span><strong>Страница 4</strong><span>Ссылки на сообщество (Telegram, поддержка)</span></div>
+        </div>
+        <p>После онбординга открывается <strong>список проектов</strong> — главный экран приложения.</p>
+      </div>
+    </section>
+
+    <section class="section" id="s2">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <h2><span data-lang="en">Editor Interface</span><span data-lang="ru">Интерфейс редактора</span></h2>
+      </div>
+
+      <div class="lang-block" data-lang="en">
+        <p>The main editor screen is divided into several panels:</p>
+        <div class="layout-diagram">
+          <pre>┌─────────────┬──────────────────────────┬────────────────┐
+│             │                          │                │
+│  <span style="color:#ffb86c">File Tree</span>   │      <span style="color:#50fa7b">Code Editor</span>          │   <span style="color:#8be9fd">Preview</span>      │
+│             │                          │   <span style="color:#8be9fd">(browser)</span>    │
+│   <span style="color:#6272a4">(20%)</span>     │        <span style="color:#6272a4">(~50%)</span>            │     <span style="color:#6272a4">(30%)</span>      │
+│             │                          │                │
+├─────────────┴──────────────────────────┴────────────────┤
+│            <span style="color:#bd93f9">Terminal (300px, collapsible)</span>                │
+└─────────────────────────────────────────────────────────┘</pre>
+        </div>
+        <h3>Panels</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Panel</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><strong>File Tree</strong></td><td>Hierarchical list of project files and folders</td></tr>
+            <tr><td><strong>Code Editor</strong></td><td>Main editing area with syntax highlighting</td></tr>
+            <tr><td><strong>Preview</strong></td><td>Built-in browser for viewing HTML/web pages</td></tr>
+            <tr><td><strong>Terminal</strong></td><td>Command line for running NPM and system commands</td></tr>
+          </tbody>
+        </table></div>
+        <h3>Toolbar Buttons</h3>
+        <ul>
+          <li><strong>Apply / Save</strong> — apply and save changes (turns orange when there are unsaved changes)</li>
+          <li><strong>Undo / Redo</strong> — undo/redo action (up to 50 steps)</li>
+          <li><strong>Run</strong> — run the project (NPM start or open in preview)</li>
+          <li><strong>Search</strong> — open the search panel</li>
+          <li><strong>Toggle Tree</strong> — show/hide file tree</li>
+          <li><strong>Toggle Preview</strong> — show/hide preview</li>
+          <li><strong>Toggle Terminal</strong> — show/hide terminal</li>
+        </ul>
+      </div>
+
+      <div class="lang-block" data-lang="ru">
+        <p>Основной экран редактора разделён на несколько панелей:</p>
+        <div class="layout-diagram">
+          <pre>┌─────────────┬──────────────────────────┬────────────────┐
+│             │                          │                │
+│  <span style="color:#ffb86c">Файловое</span>   │     <span style="color:#50fa7b">Редактор кода</span>        │  <span style="color:#8be9fd">Предпросмотр</span>  │
+│   <span style="color:#ffb86c">дерево</span>    │                          │   <span style="color:#8be9fd">(браузер)</span>    │
+│   <span style="color:#6272a4">(20%)</span>     │        <span style="color:#6272a4">(~50%)</span>            │     <span style="color:#6272a4">(30%)</span>      │
+│             │                          │                │
+├─────────────┴──────────────────────────┴────────────────┤
+│         <span style="color:#bd93f9">Терминал (300px, сворачиваемый)</span>               │
+└─────────────────────────────────────────────────────────┘</pre>
+        </div>
+        <h3>Панели</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Панель</th><th>Описание</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Файловое дерево</strong></td><td>Иерархический список файлов и папок проекта</td></tr>
+            <tr><td><strong>Редактор кода</strong></td><td>Основная область редактирования с подсветкой синтаксиса</td></tr>
+            <tr><td><strong>Предпросмотр</strong></td><td>Встроенный браузер для просмотра HTML/веб-страниц</td></tr>
+            <tr><td><strong>Терминал</strong></td><td>Командная строка для запуска NPM и системных команд</td></tr>
+          </tbody>
+        </table></div>
+        <h3>Кнопки панели инструментов</h3>
+        <ul>
+          <li><strong>Apply / Save</strong> — применить и сохранить изменения (подсвечивается оранжевым при несохранённых изменениях)</li>
+          <li><strong>Undo / Redo</strong> — отменить/повторить действие (до 50 шагов)</li>
+          <li><strong>Run</strong> — запустить проект (NPM start или открыть в предпросмотре)</li>
+          <li><strong>Search</strong> — открыть панель поиска</li>
+          <li><strong>Toggle Tree</strong> — показать/скрыть файловое дерево</li>
+          <li><strong>Toggle Preview</strong> — показать/скрыть предпросмотр</li>
+          <li><strong>Toggle Terminal</strong> — показать/скрыть терминал</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="s3">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <h2><span data-lang="en">Project Management</span><span data-lang="ru">Управление проектами</span></h2>
+      </div>
+
+      <div class="lang-block" data-lang="en">
+        <h3>Project List</h3>
+        <p>The main screen shows all projects as cards with: project name, file count, last modified date, and file type icons.</p>
+        <h3>Creating a New Project</h3>
+        <p>Three templates are available:</p>
+        <h4>Empty Project</h4>
+        <p>A clean project with no files. Perfect for starting from scratch.</p>
+        <h4>HTML Template</h4>
+        <div class="code-wrap"><div class="code-header"><div class="code-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div><span class="code-lang">file structure</span><button class="copy-btn">Copy</button></div>
+<pre>my-project/
+├── index.html      ← HTML5 page with basic markup
+├── styles.css      ← Stylesheet with CSS variables
+└── script.js       ← JavaScript with examples</pre></div>
+        <h4>Next.js Template</h4>
+        <div class="code-wrap"><div class="code-header"><div class="code-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div><span class="code-lang">file structure</span><button class="copy-btn">Copy</button></div>
+<pre>my-project/
+├── package.json
+├── tsconfig.json
+├── next.config.js
+├── app/
+│   ├── layout.tsx
+│   ├── page.tsx
+│   └── globals.css
+└── public/</pre></div>
+        <h3>Project Actions</h3>
+        <ul>
+          <li><strong>Open</strong> — tap on the card</li>
+          <li><strong>Delete</strong> — long press → "Delete"</li>
+          <li><strong>Export</strong> — export button on the card</li>
+        </ul>
+      </div>
+
+      <div class="lang-block" data-lang="ru">
+        <h3>Список проектов</h3>
+        <p>Главный экран показывает все проекты в виде карточек с: названием проекта, количеством файлов, датой последнего изменения и иконками типов файлов.</p>
+        <h3>Создание нового проекта</h3>
+        <p>Доступны три шаблона:</p>
+        <h4>Пустой проект (Empty)</h4>
+        <p>Чистый проект без файлов. Подходит для начала с нуля.</p>
+        <h4>HTML-шаблон</h4>
+        <div class="code-wrap"><div class="code-header"><div class="code-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div><span class="code-lang">структура файлов</span><button class="copy-btn">Копировать</button></div>
+<pre>my-project/
+├── index.html      ← HTML5-страница с базовой разметкой
+├── styles.css      ← Файл стилей с CSS-переменными
+└── script.js       ← JavaScript с примерами</pre></div>
+        <h4>Next.js шаблон</h4>
+        <div class="code-wrap"><div class="code-header"><div class="code-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div><span class="code-lang">структура файлов</span><button class="copy-btn">Копировать</button></div>
+<pre>my-project/
+├── package.json
+├── tsconfig.json
+├── next.config.js
+├── app/
+│   ├── layout.tsx
+│   ├── page.tsx
+│   └── globals.css
+└── public/</pre></div>
+        <h3>Действия с проектом</h3>
+        <ul>
+          <li><strong>Открыть</strong> — тап по карточке</li>
+          <li><strong>Удалить</strong> — долгое нажатие → «Удалить»</li>
+          <li><strong>Экспортировать</strong> — кнопка экспорта на карточке</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="s4">
+      <div class="section-header">
+        <span class="section-num">04</span>
+        <h2><span data-lang="en">Code Editor</span><span data-lang="ru">Редактор кода</span></h2>
+      </div>
+
+      <div class="lang-block" data-lang="en">
+        <h3>Key Features</h3>
+        <ul>
+          <li><strong>Syntax highlighting</strong> for 11+ programming languages</li>
+          <li><strong>Line numbers</strong> with alignment</li>
+          <li><strong>Monospace font</strong> for comfortable code reading</li>
+          <li><strong>Copy / Paste / Cut</strong> via toolbar</li>
+          <li><strong>Undo/Redo</strong> up to 50 steps in history</li>
+        </ul>
+        <h3>Save Workflow</h3>
+        <ol>
+          <li><strong>Edit</strong> — make changes in the editor</li>
+          <li><strong>Apply</strong> — press Apply (or <kbd>Cmd+S</kbd>) to apply changes to the in-memory file</li>
+          <li><strong>Auto-save</strong> — the project automatically saves to disk when the app is backgrounded</li>
+        </ol>
+        <div class="note"><strong>Tip:</strong> The Apply button turns <strong style="color:var(--primary)">orange</strong> when there are unsaved changes.</div>
+        <h3>Specialized Editors</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>File type</th><th>Editor</th></tr></thead>
+          <tbody>
+            <tr><td><span class="file-ext ext-html">.html</span> <span class="file-ext ext-css">.css</span> <span class="file-ext ext-js">.js</span> <span class="file-ext ext-ts">.ts</span>…</td><td>Code editor with syntax highlighting</td></tr>
+            <tr><td><span class="file-ext ext-svg">.svg</span></td><td>SVG editor with live preview</td></tr>
+            <tr><td><span class="file-ext ext-img">.png .jpg .gif .webp</span>…</td><td>Image viewer</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+
+      <div class="lang-block" data-lang="ru">
+        <h3>Основные возможности</h3>
+        <ul>
+          <li><strong>Подсветка синтаксиса</strong> для 11+ языков программирования</li>
+          <li><strong>Нумерация строк</strong> с выравниванием</li>
+          <li><strong>Монопространственный шрифт</strong> для удобного чтения кода</li>
+          <li><strong>Копировать / Вставить / Вырезать</strong> через панель инструментов</li>
+          <li><strong>Отмена/Повтор</strong> до 50 шагов в истории</li>
+        </ul>
+        <h3>Рабочий процесс сохранения</h3>
+        <ol>
+          <li><strong>Редактирование</strong> — вносите изменения в редакторе</li>
+          <li><strong>Apply</strong> — нажмите Apply (или <kbd>Cmd+S</kbd>), чтобы применить изменения к файлу в памяти</li>
+          <li><strong>Автосохранение</strong> — проект сохраняется на диск при сворачивании приложения</li>
+        </ol>
+        <div class="note"><strong>Совет:</strong> Кнопка Apply подсвечивается <strong style="color:var(--primary)">оранжевым</strong>, когда есть несохранённые изменения.</div>
+        <h3>Специализированные редакторы</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Тип файла</th><th>Редактор</th></tr></thead>
+          <tbody>
+            <tr><td><span class="file-ext ext-html">.html</span> <span class="file-ext ext-css">.css</span> <span class="file-ext ext-js">.js</span> <span class="file-ext ext-ts">.ts</span>…</td><td>Редактор кода с подсветкой синтаксиса</td></tr>
+            <tr><td><span class="file-ext ext-svg">.svg</span></td><td>SVG-редактор с предпросмотром</td></tr>
+            <tr><td><span class="file-ext ext-img">.png .jpg .gif .webp</span>…</td><td>Просмотрщик изображений</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </section>
+
+    <section class="section" id="s5">
+      <div class="section-header">
+        <span class="section-num">05</span>
+        <h2><span data-lang="en">Live Preview</span><span data-lang="ru">Предварительный просмотр</span></h2>
+      </div>
+
+      <div class="lang-block" data-lang="en">
+        <p>The built-in <strong>WebKit</strong> browser displays your work in real time.</p>
+        <h3>Preview Modes</h3>
+        <h4>HTML Mode</h4>
+        <p>Loads HTML code directly into WebView. Suitable for static pages.</p>
+        <h4>Server Mode</h4>
+        <p>Starts a local HTTP server and opens the page via <code>http://localhost:PORT</code>. Required for:</p>
+        <ul>
+          <li>React, Next.js and other frameworks</li>
+          <li>Projects with AJAX requests</li>
+          <li>Correct handling of relative paths</li>
+        </ul>
+        <h3>Preview Features</h3>
+        <ul>
+          <li><strong>Auto-refresh</strong> — preview updates after each Apply (configurable)</li>
+          <li><strong>Refresh delay</strong> — configurable pause before refreshing</li>
+          <li><strong>Manual refresh</strong> — Refresh button</li>
+          <li><strong>Console capture</strong> — JavaScript errors and <code>console.log()</code> appear in the terminal</li>
+        </ul>
+      </div>
+
+      <div class="lang-block" data-lang="ru">
+        <p>Встроенный браузер на базе <strong>WebKit</strong> отображает результат вашей работы в реальном времени.</p>
+        <h3>Режимы предпросмотра</h3>
+        <h4>HTML-режим</h4>
+        <p>Загружает HTML-код напрямую в WebView. Подходит для статичных страниц.</p>
+        <h4>Серверный режим</h4>
+        <p>Запускает локальный HTTP-сервер и открывает страницу через <code>http://localhost:PORT</code>. Необходим для:</p>
+        <ul>
+          <li>React, Next.js и других фреймворков</li>
+          <li>Проектов с AJAX-запросами</li>
+          <li>Корректной работы относительных путей</li>
+        </ul>
+        <h3>Функции предпросмотра</h3>
+        <ul>
+          <li><strong>Автообновление</strong> — предпросмотр обновляется после каждого Apply (настраивается)</li>
+          <li><strong>Задержка обновления</strong> — настраиваемая пауза перед обновлением</li>
+          <li><strong>Ручное обновление</strong> — кнопка Refresh</li>
+          <li><strong>Перехват консоли</strong> — JavaScript-ошибки и <code>console.log()</code> отображаются в терминале</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="s6">
+      <div class="section-header">
+        <span class="section-num">06</span>
+        <h2><span data-lang="en">Terminal</span><span data-lang="ru">Терминал</span></h2>
+      </div>
+
+      <div class="lang-block" data-lang="en">
+        <p>The built-in terminal lets you run commands in your project context.</p>
+        <h3>Terminal Features</h3>
+        <ul>
+          <li>Run NPM commands (<code>npm install</code>, <code>npm start</code>, <code>npm run build</code>)</li>
+          <li>Command history with <kbd>↑</kbd> / <kbd>↓</kbd> navigation</li>
+          <li>Running server status display</li>
+          <li>Buttons: <strong>Clear</strong>, <strong>Terminate</strong> (stop process), <strong>Close</strong> (collapse)</li>
+          <li>Auto-scroll to latest output</li>
+        </ul>
+        <div class="code-wrap"><div class="code-header"><div class="code-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div><span class="code-lang">bash</span><button class="copy-btn">Copy</button></div>
+<pre><span class="cmd">npm install</span>          <span class="cmt"># Install dependencies</span>
+<span class="cmd">npm start</span>            <span class="cmt"># Start dev server</span>
+<span class="cmd">npm run build</span>        <span class="cmt"># Build project</span>
+<span class="cmd">npm run dev</span>          <span class="cmt"># Next.js dev mode</span></pre></div>
+        <div class="note"><strong>Auto:</strong> After running <code>npm start</code> or <code>npm run dev</code>, preview automatically switches to <strong>server mode</strong> and opens localhost.</div>
+      </div>
+
+      <div class="lang-block" data-lang="ru">
+        <p>Встроенный терминал позволяет выполнять команды в контексте вашего проекта.</p>
+        <h3>Возможности терминала</h3>
+        <ul>
+          <li>Выполнение NPM-команд (<code>npm install</code>, <code>npm start</code>, <code>npm run build</code>)</li>
+          <li>История команд с навигацией стрелками <kbd>↑</kbd> / <kbd>↓</kbd></li>
+          <li>Отображение статуса запущенного сервера</li>
+          <li>Кнопки: <strong>Clear</strong>, <strong>Terminate</strong> (завершить процесс), <strong>Close</strong> (свернуть)</li>
+          <li>Автопрокрутка к последнему выводу</li>
+        </ul>
+        <div class="code-wrap"><div class="code-header"><div class="code-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div><span class="code-lang">bash</span><button class="copy-btn">Копировать</button></div>
+<pre><span class="cmd">npm install</span>          <span class="cmt"># Установить зависимости</span>
+<span class="cmd">npm start</span>            <span class="cmt"># Запустить dev-сервер</span>
+<span class="cmd">npm run build</span>        <span class="cmt"># Собрать проект</span>
+<span class="cmd">npm run dev</span>          <span class="cmt"># Next.js dev-режим</span></pre></div>
+        <div class="note"><strong>Автоматически:</strong> После запуска <code>npm start</code> или <code>npm run dev</code> предпросмотр переключается в <strong>серверный режим</strong> и открывает localhost.</div>
+      </div>
+    </section>
+
+    <section class="section" id="s7">
+      <div class="section-header">
+        <span class="section-num">07</span>
+        <h2><span data-lang="en">Search</span><span data-lang="ru">Поиск</span></h2>
+      </div>
+
+      <div class="lang-block" data-lang="en">
+        <p>Press the <strong>Search</strong> button or use <kbd>Cmd+F</kbd> to open the search panel.</p>
+        <h3>Search Modes</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Mode</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Content</strong></td><td>Search file contents</td></tr>
+            <tr><td><strong>Files</strong></td><td>Search file names</td></tr>
+            <tr><td><strong>All</strong></td><td>Search both contents and file names</td></tr>
+          </tbody>
+        </table></div>
+        <h3>Search Options</h3>
+        <ul>
+          <li><strong>Case Sensitive</strong> — match exact case</li>
+          <li><strong>Whole Word</strong> — whole words only</li>
+          <li><strong>Regex</strong> — use regular expressions</li>
+        </ul>
+        <p>Results show the file name and line number. Tap a result to jump to that location in the code.</p>
+      </div>
+
+      <div class="lang-block" data-lang="ru">
+        <p>Нажмите кнопку <strong>Search</strong> или используйте <kbd>Cmd+F</kbd> для открытия панели поиска.</p>
+        <h3>Режимы поиска</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Режим</th><th>Описание</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Content</strong></td><td>Поиск по содержимому файлов</td></tr>
+            <tr><td><strong>Files</strong></td><td>Поиск по именам файлов</td></tr>
+            <tr><td><strong>All</strong></td><td>Поиск и по содержимому, и по именам</td></tr>
+          </tbody>
+        </table></div>
+        <h3>Опции поиска</h3>
+        <ul>
+          <li><strong>Case Sensitive</strong> — учитывать регистр</li>
+          <li><strong>Whole Word</strong> — только целые слова</li>
+          <li><strong>Regex</strong> — использовать регулярные выражения</li>
+        </ul>
+        <p>Результаты показывают имя файла и номер строки. Нажмите на результат, чтобы перейти к нужному месту в коде.</p>
+      </div>
+    </section>
+
+    <section class="section" id="s8">
+      <div class="section-header">
+        <span class="section-num">08</span>
+        <h2><span data-lang="en">File Management</span><span data-lang="ru">Работа с файлами</span></h2>
+      </div>
+
+      <div class="lang-block" data-lang="en">
+        <h3>File Tree</h3>
+        <p>The file tree on the left shows the full project structure. Folders can be collapsed and expanded.</p>
+        <h3>Creating Files and Folders</h3>
+        <p>Tap <strong>+</strong> in the file tree header:</p>
+        <ul>
+          <li><strong>New File</strong> — create a new file (enter name with extension)</li>
+          <li><strong>New Folder</strong> — create a new folder</li>
+        </ul>
+        <p>The new file is automatically selected and opened in the editor.</p>
+        <h3>Context Menu (long press)</h3>
+        <ul>
+          <li><strong>Rename</strong> — rename the file/folder</li>
+          <li><strong>Copy</strong> — copy</li>
+          <li><strong>Paste</strong> — paste (into folder)</li>
+          <li><strong>Delete</strong> — delete</li>
+        </ul>
+        <h3>File Icons and Colors</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Extension</th><th>Color</th></tr></thead>
+          <tbody>
+            <tr><td><span class="file-ext ext-html">.html</span></td><td>Orange</td></tr>
+            <tr><td><span class="file-ext ext-css">.css</span></td><td>Blue</td></tr>
+            <tr><td><span class="file-ext ext-js">.js</span></td><td>Yellow</td></tr>
+            <tr><td><span class="file-ext ext-ts">.ts</span></td><td>Blue</td></tr>
+            <tr><td><span class="file-ext ext-jsx">.jsx / .tsx</span></td><td>Cyan</td></tr>
+            <tr><td><span class="file-ext ext-json">.json</span></td><td>Green</td></tr>
+            <tr><td><span class="file-ext ext-md">.md</span></td><td>Gray</td></tr>
+            <tr><td><span class="file-ext ext-svg">.svg</span></td><td>Purple</td></tr>
+            <tr><td><span class="file-ext ext-img">Images</span></td><td>Pink</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+
+      <div class="lang-block" data-lang="ru">
+        <h3>Файловое дерево</h3>
+        <p>Файловое дерево слева показывает всю структуру проекта. Папки можно сворачивать и разворачивать.</p>
+        <h3>Создание файлов и папок</h3>
+        <p>Нажмите <strong>+</strong> в заголовке файлового дерева:</p>
+        <ul>
+          <li><strong>New File</strong> — создать новый файл (вводится имя с расширением)</li>
+          <li><strong>New Folder</strong> — создать новую папку</li>
+        </ul>
+        <p>Новый файл автоматически выбирается и открывается в редакторе.</p>
+        <h3>Контекстное меню (долгое нажатие)</h3>
+        <ul>
+          <li><strong>Rename</strong> — переименовать</li>
+          <li><strong>Copy</strong> — копировать</li>
+          <li><strong>Paste</strong> — вставить (в папку)</li>
+          <li><strong>Delete</strong> — удалить</li>
+        </ul>
+        <h3>Иконки и цвета файлов</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Расширение</th><th>Цвет</th></tr></thead>
+          <tbody>
+            <tr><td><span class="file-ext ext-html">.html</span></td><td>Оранжевый</td></tr>
+            <tr><td><span class="file-ext ext-css">.css</span></td><td>Синий</td></tr>
+            <tr><td><span class="file-ext ext-js">.js</span></td><td>Жёлтый</td></tr>
+            <tr><td><span class="file-ext ext-ts">.ts</span></td><td>Синий</td></tr>
+            <tr><td><span class="file-ext ext-jsx">.jsx / .tsx</span></td><td>Голубой</td></tr>
+            <tr><td><span class="file-ext ext-json">.json</span></td><td>Зелёный</td></tr>
+            <tr><td><span class="file-ext ext-md">.md</span></td><td>Серый</td></tr>
+            <tr><td><span class="file-ext ext-svg">.svg</span></td><td>Фиолетовый</td></tr>
+            <tr><td><span class="file-ext ext-img">Изображения</span></td><td>Розовый</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </section>
+
+    <section class="section" id="s9">
+      <div class="section-header">
+        <span class="section-num">09</span>
+        <h2><span data-lang="en">Import &amp; Export</span><span data-lang="ru">Импорт и экспорт проектов</span></h2>
+      </div>
+
+      <div class="lang-block" data-lang="en">
+        <h3>Export</h3>
+        <ol>
+          <li>On the main screen, tap the export button on the project card</li>
+          <li>The project is packed into a ZIP archive</li>
+          <li>Save to the <strong>Files</strong> app or share via AirDrop, email, etc.</li>
+        </ol>
+        <h3>Import ZIP Archive</h3>
+        <div class="note"><strong>Note:</strong> This feature is available but not yet fully polished in the current beta. Some ZIP structures may not import correctly.</div>
+        <ol>
+          <li>Tap the <strong>Import</strong> button on the main screen</li>
+          <li>Select a ZIP file via the system file picker</li>
+          <li>The app extracts the archive and creates a new project</li>
+        </ol>
+      </div>
+
+      <div class="lang-block" data-lang="ru">
+        <h3>Экспорт</h3>
+        <ol>
+          <li>На главном экране нажмите кнопку экспорта на карточке проекта</li>
+          <li>Проект упаковывается в ZIP-архив</li>
+          <li>ZIP-файл можно сохранить в приложение <strong>Файлы</strong> или отправить через AirDrop, почту и т.д.</li>
+        </ol>
+        <h3>Импорт ZIP-архива</h3>
+        <div class="note"><strong>Примечание:</strong> Функция доступна, но ещё не полностью отполирована в текущей бета-версии. Некоторые структуры ZIP могут импортироваться некорректно.</div>
+        <ol>
+          <li>Нажмите кнопку <strong>Import</strong> на главном экране</li>
+          <li>Выберите ZIP-файл через системный файловый пикер</li>
+          <li>Приложение распакует архив и создаст новый проект</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="s10">
+      <div class="section-header">
+        <span class="section-num">10</span>
+        <h2><span data-lang="en">Files App (iOS)</span><span data-lang="ru">Загрузка файлов через «Файлы» (iOS)</span></h2>
+      </div>
+
+      <div class="lang-block" data-lang="en">
+        <p>CodeBench fully integrates with the system <strong>Files</strong> app on iPad and iPhone.</p>
+        <h3>Supported Sources</h3>
+        <div class="card-grid">
+          <div class="mini-card"><span class="mc-icon">☁️</span><strong>iCloud Drive</strong><span>Apple cloud storage</span></div>
+          <div class="mini-card"><span class="mc-icon">📱</span><strong>On iPad</strong><span>Local device storage</span></div>
+          <div class="mini-card"><span class="mc-icon">🟢</span><strong>Google Drive</strong><span>If the app is installed</span></div>
+          <div class="mini-card"><span class="mc-icon">📦</span><strong>Dropbox / OneDrive</strong><span>If the app is installed</span></div>
+        </div>
+        <h3>Import Images</h3>
+        <ol>
+          <li>Tap the <strong>Import Image</strong> button in the toolbar</li>
+          <li>Choose source: Files app or Photo Library</li>
+          <li>Image is automatically copied to the <code>images/</code> folder</li>
+        </ol>
+        <h3>Supported Image Formats</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Format</th><th>Extension</th></tr></thead>
+          <tbody>
+            <tr><td>PNG</td><td><code>.png</code></td></tr>
+            <tr><td>JPEG</td><td><code>.jpg</code>, <code>.jpeg</code></td></tr>
+            <tr><td>GIF</td><td><code>.gif</code></td></tr>
+            <tr><td>WebP</td><td><code>.webp</code></td></tr>
+            <tr><td>BMP</td><td><code>.bmp</code></td></tr>
+            <tr><td>TIFF</td><td><code>.tiff</code>, <code>.tif</code></td></tr>
+            <tr><td>ICO</td><td><code>.ico</code></td></tr>
+          </tbody>
+        </table></div>
+      </div>
+
+      <div class="lang-block" data-lang="ru">
+        <p>CodeBench полностью интегрирован с системным приложением <strong>«Файлы»</strong> на iPad и iPhone.</p>
+        <h3>Поддерживаемые источники</h3>
+        <div class="card-grid">
+          <div class="mini-card"><span class="mc-icon">☁️</span><strong>iCloud Drive</strong><span>Облачное хранилище Apple</span></div>
+          <div class="mini-card"><span class="mc-icon">📱</span><strong>На iPad</strong><span>Локальное хранилище устройства</span></div>
+          <div class="mini-card"><span class="mc-icon">🟢</span><strong>Google Диск</strong><span>Если установлено приложение</span></div>
+          <div class="mini-card"><span class="mc-icon">📦</span><strong>Dropbox / OneDrive</strong><span>Если установлено приложение</span></div>
+        </div>
+        <h3>Импорт изображений</h3>
+        <ol>
+          <li>Нажмите кнопку <strong>Import Image</strong> в панели инструментов</li>
+          <li>Выберите источник: приложение «Файлы» или библиотека фото</li>
+          <li>Изображение автоматически копируется в папку <code>images/</code></li>
+        </ol>
+        <h3>Поддерживаемые форматы изображений</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Формат</th><th>Расширение</th></tr></thead>
+          <tbody>
+            <tr><td>PNG</td><td><code>.png</code></td></tr>
+            <tr><td>JPEG</td><td><code>.jpg</code>, <code>.jpeg</code></td></tr>
+            <tr><td>GIF</td><td><code>.gif</code></td></tr>
+            <tr><td>WebP</td><td><code>.webp</code></td></tr>
+            <tr><td>BMP</td><td><code>.bmp</code></td></tr>
+            <tr><td>TIFF</td><td><code>.tiff</code>, <code>.tif</code></td></tr>
+            <tr><td>ICO</td><td><code>.ico</code></td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </section>
+
+    <section class="section" id="s11">
+      <div class="section-header">
+        <span class="section-num">11</span>
+        <h2><span data-lang="en">Image Viewer</span><span data-lang="ru">Просмотр изображений</span></h2>
+      </div>
+
+      <div class="lang-block" data-lang="en">
+        <p>Selecting an image in the file tree opens the built-in viewer with extended capabilities.</p>
+        <h3>Viewer Features</h3>
+        <ul>
+          <li><strong>Pinch-to-zoom</strong> — zoom with pinch gesture (0.5x to 5.0x)</li>
+          <li><strong>Pan/Drag</strong> — pan zoomed image with finger</li>
+          <li><strong>Zoom In / Zoom Out</strong> — zoom buttons</li>
+          <li><strong>Fit</strong> — fit image to screen</li>
+          <li><strong>Info</strong> — shows dimensions (width × height) and file size</li>
+        </ul>
+        <div class="note">The viewer supports both on-disk files and <strong>Base64</strong> encoded images.</div>
+      </div>
+
+      <div class="lang-block" data-lang="ru">
+        <p>При выборе изображения в файловом дереве открывается встроенный просмотрщик с расширенными возможностями.</p>
+        <h3>Функции просмотрщика</h3>
+        <ul>
+          <li><strong>Pinch-to-zoom</strong> — масштабирование жестом щипка (от 0.5x до 5.0x)</li>
+          <li><strong>Pan/Drag</strong> — перемещение увеличенного изображения пальцем</li>
+          <li><strong>Zoom In / Zoom Out</strong> — кнопки масштабирования</li>
+          <li><strong>Fit</strong> — вписать изображение в экран</li>
+          <li><strong>Информация</strong> — отображает размер (ширина × высота) и размер файла</li>
+        </ul>
+        <div class="note">Просмотрщик поддерживает как файлы с диска, так и изображения в формате <strong>Base64</strong>.</div>
+      </div>
+    </section>
+
+    <section class="section" id="s12">
+      <div class="section-header">
+        <span class="section-num">12</span>
+        <h2><span data-lang="en">SVG Editor</span><span data-lang="ru">SVG-редактор</span></h2>
+      </div>
+
+      <div class="lang-block" data-lang="en">
+        <p>Opening an <span class="file-ext ext-svg">.svg</span> file launches the specialized SVG editor.</p>
+        <h3>Features</h3>
+        <ul>
+          <li>SVG code editing with syntax highlighting</li>
+          <li>Real-time SVG image preview</li>
+          <li>Split view: code on the left, preview on the right</li>
+        </ul>
+      </div>
+
+      <div class="lang-block" data-lang="ru">
+        <p>При открытии файла <span class="file-ext ext-svg">.svg</span> запускается специализированный SVG-редактор.</p>
+        <h3>Возможности</h3>
+        <ul>
+          <li>Редактирование SVG-кода с подсветкой синтаксиса</li>
+          <li>Предпросмотр SVG-изображения в реальном времени</li>
+          <li>Разделённый вид: код слева, предпросмотр справа</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="s13">
+      <div class="section-header">
+        <span class="section-num">13</span>
+        <h2><span data-lang="en">Settings</span><span data-lang="ru">Настройки</span></h2>
+      </div>
+
+      <div class="lang-block" data-lang="en">
+        <p>Open settings via the gear button. Settings are divided into 4 tabs.</p>
+        <h3>Appearance</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Setting</th><th>Options</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Theme</strong></td><td>Dark, Light, Auto (system)</td></tr>
+            <tr><td><strong>Accent color</strong></td><td><span class="pill pill-orange">Orange</span> <span class="pill pill-cyan">Blue</span> <span class="pill pill-green">Green</span> <span class="pill pill-purple">Purple</span> <span class="pill pill-pink">Pink</span></td></tr>
+          </tbody>
+        </table></div>
+        <h3>Editor</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Setting</th><th>Default</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Font size</strong></td><td><code>16px</code></td><td>Editor font size</td></tr>
+            <tr><td><strong>Tab size</strong></td><td><code>2 spaces</code></td><td>Indent on Tab press</td></tr>
+            <tr><td><strong>Auto-save</strong></td><td>On</td><td>Save when app is backgrounded</td></tr>
+            <tr><td><strong>Line numbers</strong></td><td>On</td><td>Show line numbers</td></tr>
+            <tr><td><strong>Word wrap</strong></td><td>Off</td><td>Wrap long lines</td></tr>
+          </tbody>
+        </table></div>
+        <h3>Preview</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Setting</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Auto-refresh</strong></td><td>Refresh preview on changes</td></tr>
+            <tr><td><strong>Refresh delay</strong></td><td>Wait time before refresh (ms)</td></tr>
+          </tbody>
+        </table></div>
+        <h3>Terminal</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Setting</th><th>Default</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Font size</strong></td><td><code>14px</code></td><td>Terminal font size</td></tr>
+            <tr><td><strong>Cursor style</strong></td><td>Block</td><td>Block / Underline / Bar</td></tr>
+            <tr><td><strong>Command history</strong></td><td><code>100</code></td><td>Number of stored commands</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+
+      <div class="lang-block" data-lang="ru">
+        <p>Откройте настройки через кнопку шестерёнки. Настройки разделены на 4 вкладки.</p>
+        <h3>Внешний вид (Appearance)</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Настройка</th><th>Варианты</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Тема</strong></td><td>Тёмная, Светлая, Авто (системная)</td></tr>
+            <tr><td><strong>Акцентный цвет</strong></td><td><span class="pill pill-orange">Оранжевый</span> <span class="pill pill-cyan">Синий</span> <span class="pill pill-green">Зелёный</span> <span class="pill pill-purple">Фиолетовый</span> <span class="pill pill-pink">Розовый</span></td></tr>
+          </tbody>
+        </table></div>
+        <h3>Редактор (Editor)</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Настройка</th><th>По умолчанию</th><th>Описание</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Размер шрифта</strong></td><td><code>16px</code></td><td>Размер шрифта в редакторе</td></tr>
+            <tr><td><strong>Размер таба</strong></td><td><code>2 пробела</code></td><td>Отступ при нажатии Tab</td></tr>
+            <tr><td><strong>Автосохранение</strong></td><td>Включено</td><td>Сохранять при сворачивании</td></tr>
+            <tr><td><strong>Нумерация строк</strong></td><td>Включена</td><td>Показывать номера строк</td></tr>
+            <tr><td><strong>Перенос строк</strong></td><td>Выключен</td><td>Переносить длинные строки</td></tr>
+          </tbody>
+        </table></div>
+        <h3>Предпросмотр (Preview)</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Настройка</th><th>Описание</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Автообновление</strong></td><td>Обновлять предпросмотр при изменениях</td></tr>
+            <tr><td><strong>Задержка обновления</strong></td><td>Время ожидания перед обновлением (мс)</td></tr>
+          </tbody>
+        </table></div>
+        <h3>Терминал (Terminal)</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Настройка</th><th>По умолчанию</th><th>Описание</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Размер шрифта</strong></td><td><code>14px</code></td><td>Размер шрифта терминала</td></tr>
+            <tr><td><strong>Стиль курсора</strong></td><td>Блок</td><td>Блок / Подчёркивание / Полоска</td></tr>
+            <tr><td><strong>История команд</strong></td><td><code>100</code></td><td>Количество хранимых команд</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </section>
+
+    <section class="section" id="s14">
+      <div class="section-header">
+        <span class="section-num">14</span>
+        <h2><span data-lang="en">Keyboard Shortcuts</span><span data-lang="ru">Горячие клавиши</span></h2>
+      </div>
+
+      <div class="lang-block" data-lang="en">
+        <p>Connect an external keyboard to your iPad to use keyboard shortcuts.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Shortcut</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td><kbd>Cmd + S</kbd></td><td>Save / Apply</td></tr>
+            <tr><td><kbd>Cmd + B</kbd></td><td>Run project</td></tr>
+            <tr><td><kbd>Cmd + F</kbd></td><td>Open search</td></tr>
+            <tr><td><kbd>Cmd + /</kbd></td><td>Show/hide file tree</td></tr>
+            <tr><td><kbd>Cmd + Z</kbd></td><td>Undo</td></tr>
+            <tr><td><kbd>Cmd + Shift + Z</kbd></td><td>Redo</td></tr>
+            <tr><td><kbd>Cmd + C</kbd></td><td>Copy</td></tr>
+            <tr><td><kbd>Cmd + V</kbd></td><td>Paste</td></tr>
+            <tr><td><kbd>Cmd + X</kbd></td><td>Cut</td></tr>
+            <tr><td><kbd>↑</kbd> / <kbd>↓</kbd></td><td>Terminal command history</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+
+      <div class="lang-block" data-lang="ru">
+        <p>Для использования горячих клавиш подключите внешнюю клавиатуру к iPad.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Комбинация</th><th>Действие</th></tr></thead>
+          <tbody>
+            <tr><td><kbd>Cmd + S</kbd></td><td>Сохранить / Apply</td></tr>
+            <tr><td><kbd>Cmd + B</kbd></td><td>Запустить проект</td></tr>
+            <tr><td><kbd>Cmd + F</kbd></td><td>Открыть поиск</td></tr>
+            <tr><td><kbd>Cmd + /</kbd></td><td>Показать/скрыть файловое дерево</td></tr>
+            <tr><td><kbd>Cmd + Z</kbd></td><td>Отменить</td></tr>
+            <tr><td><kbd>Cmd + Shift + Z</kbd></td><td>Повторить</td></tr>
+            <tr><td><kbd>Cmd + C</kbd></td><td>Копировать</td></tr>
+            <tr><td><kbd>Cmd + V</kbd></td><td>Вставить</td></tr>
+            <tr><td><kbd>Cmd + X</kbd></td><td>Вырезать</td></tr>
+            <tr><td><kbd>↑</kbd> / <kbd>↓</kbd></td><td>История команд в терминале</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </section>
+
+    <section class="section" id="s15">
+      <div class="section-header">
+        <span class="section-num">15</span>
+        <h2><span data-lang="en">Supported Languages</span><span data-lang="ru">Поддерживаемые языки</span></h2>
+      </div>
+
+      <div class="lang-block" data-lang="en">
+        <p>CodeBench supports syntax highlighting for the following languages:</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Language</th><th>Extensions</th></tr></thead>
+          <tbody>
+            <tr><td>HTML</td><td><span class="file-ext ext-html">.html</span> <span class="file-ext ext-html">.htm</span></td></tr>
+            <tr><td>CSS</td><td><span class="file-ext ext-css">.css</span></td></tr>
+            <tr><td>JavaScript</td><td><span class="file-ext ext-js">.js</span> <span class="file-ext ext-js">.mjs</span></td></tr>
+            <tr><td>TypeScript</td><td><span class="file-ext ext-ts">.ts</span></td></tr>
+            <tr><td>JSX</td><td><span class="file-ext ext-jsx">.jsx</span></td></tr>
+            <tr><td>TSX</td><td><span class="file-ext ext-jsx">.tsx</span></td></tr>
+            <tr><td>JSON</td><td><span class="file-ext ext-json">.json</span></td></tr>
+            <tr><td>XML</td><td><span class="file-ext ext-html">.xml</span></td></tr>
+            <tr><td>Markdown</td><td><span class="file-ext ext-md">.md</span> <span class="file-ext ext-md">.markdown</span></td></tr>
+            <tr><td>YAML</td><td><span class="file-ext ext-json">.yml</span> <span class="file-ext ext-json">.yaml</span></td></tr>
+            <tr><td>SVG</td><td><span class="file-ext ext-svg">.svg</span></td></tr>
+          </tbody>
+        </table></div>
+        <h3>Color Scheme (Dracula)</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Element</th><th>Color</th></tr></thead>
+          <tbody>
+            <tr><td>Keywords</td><td><span style="color:#ff79c6;font-weight:700;font-family:monospace">#FF79C6 — Pink</span></td></tr>
+            <tr><td>Functions</td><td><span style="color:#50fa7b;font-weight:700;font-family:monospace">#50FA7B — Green</span></td></tr>
+            <tr><td>Strings</td><td><span style="color:#f1fa8c;font-weight:700;font-family:monospace">#F1FA8C — Yellow</span></td></tr>
+            <tr><td>Comments</td><td><span style="color:#6272a4;font-weight:700;font-family:monospace">#6272A4 — Gray-blue</span></td></tr>
+            <tr><td>Numbers</td><td><span style="color:#bd93f9;font-weight:700;font-family:monospace">#BD93F9 — Purple</span></td></tr>
+            <tr><td>HTML tags</td><td><span style="color:#ff79c6;font-weight:700;font-family:monospace">#FF79C6 — Pink</span></td></tr>
+            <tr><td>Attributes</td><td><span style="color:#50fa7b;font-weight:700;font-family:monospace">#50FA7B — Green</span></td></tr>
+          </tbody>
+        </table></div>
+        <div class="code-wrap"><div class="code-header"><div class="code-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div><span class="code-lang">javascript — Dracula Theme</span><button class="copy-btn">Copy</button></div>
+<pre><span class="cmt">// CodeBench — Dracula Theme</span>
+<span class="kw">function</span> <span class="fn">greet</span>(<span style="color:#ffb86c">name</span>) {
+  <span class="kw">const</span> message = <span class="str">"Hello, "</span> + name + <span class="str">"!"</span>;
+  <span class="fn">console</span>.<span class="fn">log</span>(message);
+  <span class="kw">return</span> <span class="num">42</span>;
+}
+<span class="fn">greet</span>(<span class="str">"CodeBench"</span>);</pre></div>
+      </div>
+
+      <div class="lang-block" data-lang="ru">
+        <p>CodeBench поддерживает подсветку синтаксиса для следующих языков:</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Язык</th><th>Расширения</th></tr></thead>
+          <tbody>
+            <tr><td>HTML</td><td><span class="file-ext ext-html">.html</span> <span class="file-ext ext-html">.htm</span></td></tr>
+            <tr><td>CSS</td><td><span class="file-ext ext-css">.css</span></td></tr>
+            <tr><td>JavaScript</td><td><span class="file-ext ext-js">.js</span> <span class="file-ext ext-js">.mjs</span></td></tr>
+            <tr><td>TypeScript</td><td><span class="file-ext ext-ts">.ts</span></td></tr>
+            <tr><td>JSX</td><td><span class="file-ext ext-jsx">.jsx</span></td></tr>
+            <tr><td>TSX</td><td><span class="file-ext ext-jsx">.tsx</span></td></tr>
+            <tr><td>JSON</td><td><span class="file-ext ext-json">.json</span></td></tr>
+            <tr><td>XML</td><td><span class="file-ext ext-html">.xml</span></td></tr>
+            <tr><td>Markdown</td><td><span class="file-ext ext-md">.md</span> <span class="file-ext ext-md">.markdown</span></td></tr>
+            <tr><td>YAML</td><td><span class="file-ext ext-json">.yml</span> <span class="file-ext ext-json">.yaml</span></td></tr>
+            <tr><td>SVG</td><td><span class="file-ext ext-svg">.svg</span></td></tr>
+          </tbody>
+        </table></div>
+        <h3>Цветовая схема (Dracula)</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Элемент</th><th>Цвет</th></tr></thead>
+          <tbody>
+            <tr><td>Ключевые слова</td><td><span style="color:#ff79c6;font-weight:700;font-family:monospace">#FF79C6 — Розовый</span></td></tr>
+            <tr><td>Функции</td><td><span style="color:#50fa7b;font-weight:700;font-family:monospace">#50FA7B — Зелёный</span></td></tr>
+            <tr><td>Строки</td><td><span style="color:#f1fa8c;font-weight:700;font-family:monospace">#F1FA8C — Жёлтый</span></td></tr>
+            <tr><td>Комментарии</td><td><span style="color:#6272a4;font-weight:700;font-family:monospace">#6272A4 — Серо-синий</span></td></tr>
+            <tr><td>Числа</td><td><span style="color:#bd93f9;font-weight:700;font-family:monospace">#BD93F9 — Фиолетовый</span></td></tr>
+            <tr><td>Теги HTML</td><td><span style="color:#ff79c6;font-weight:700;font-family:monospace">#FF79C6 — Розовый</span></td></tr>
+            <tr><td>Атрибуты</td><td><span style="color:#50fa7b;font-weight:700;font-family:monospace">#50FA7B — Зелёный</span></td></tr>
+          </tbody>
+        </table></div>
+        <div class="code-wrap"><div class="code-header"><div class="code-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div><span class="code-lang">javascript — Dracula Theme</span><button class="copy-btn">Копировать</button></div>
+<pre><span class="cmt">// CodeBench — Dracula Theme</span>
+<span class="kw">function</span> <span class="fn">greet</span>(<span style="color:#ffb86c">name</span>) {
+  <span class="kw">const</span> message = <span class="str">"Hello, "</span> + name + <span class="str">"!"</span>;
+  <span class="fn">console</span>.<span class="fn">log</span>(message);
+  <span class="kw">return</span> <span class="num">42</span>;
+}
+<span class="fn">greet</span>(<span class="str">"CodeBench"</span>);</pre></div>
+      </div>
+    </section>
+
+    <section class="section" id="s16">
+      <div class="section-header">
+        <span class="section-num">16</span>
+        <h2><span data-lang="en">Architecture &amp; Technologies</span><span data-lang="ru">Архитектура и технологии</span></h2>
+      </div>
+
+      <div class="lang-block" data-lang="en">
+        <h3>Technology Stack</h3>
+        <div class="stack-pills">
+          <span class="pill pill-cyan">SwiftUI + UIKit</span>
+          <span class="pill pill-orange">WKWebView (WebKit)</span>
+          <span class="pill pill-green">Combine (@Published)</span>
+          <span class="pill pill-purple">MVVM</span>
+          <span class="pill pill-pink">FileManager</span>
+          <span class="pill pill-cyan">URLSession</span>
+          <span class="pill pill-orange">PHPickerViewController</span>
+        </div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Component</th><th>Technology</th></tr></thead>
+          <tbody>
+            <tr><td>UI Framework</td><td><strong>SwiftUI + UIKit</strong></td></tr>
+            <tr><td>Web rendering</td><td><strong>WKWebView (WebKit)</strong></td></tr>
+            <tr><td>Text editor</td><td><strong>UITextView + NSAttributedString</strong></td></tr>
+            <tr><td>Data storage</td><td><strong>Codable + UserDefaults + FileManager</strong></td></tr>
+            <tr><td>Reactivity</td><td><strong>Combine (@Published)</strong></td></tr>
+            <tr><td>Thread safety</td><td><strong>@MainActor</strong></td></tr>
+            <tr><td>Local server</td><td><strong>URLSession + HTTP Server</strong></td></tr>
+            <tr><td>File import</td><td><strong>UIDocumentPickerViewController</strong></td></tr>
+            <tr><td>Photo import</td><td><strong>PHPickerViewController</strong></td></tr>
+          </tbody>
+        </table></div>
+        <h3>Design Patterns</h3>
+        <ul>
+          <li><strong>MVVM</strong> — separation of logic (ViewModel) and view (View)</li>
+          <li><strong>Singleton</strong> — Settings and FileManagerService</li>
+          <li><strong>Observer</strong> — reactive updates via Combine</li>
+          <li><strong>Weak References</strong> — in FileNode to prevent memory leaks</li>
+          <li><strong>NotificationCenter</strong> — inter-component communication</li>
+        </ul>
+      </div>
+
+      <div class="lang-block" data-lang="ru">
+        <h3>Технологический стек</h3>
+        <div class="stack-pills">
+          <span class="pill pill-cyan">SwiftUI + UIKit</span>
+          <span class="pill pill-orange">WKWebView (WebKit)</span>
+          <span class="pill pill-green">Combine (@Published)</span>
+          <span class="pill pill-purple">MVVM</span>
+          <span class="pill pill-pink">FileManager</span>
+          <span class="pill pill-cyan">URLSession</span>
+          <span class="pill pill-orange">PHPickerViewController</span>
+        </div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Компонент</th><th>Технология</th></tr></thead>
+          <tbody>
+            <tr><td>UI Framework</td><td><strong>SwiftUI + UIKit</strong></td></tr>
+            <tr><td>Веб-рендеринг</td><td><strong>WKWebView (WebKit)</strong></td></tr>
+            <tr><td>Текстовый редактор</td><td><strong>UITextView + NSAttributedString</strong></td></tr>
+            <tr><td>Хранилище данных</td><td><strong>Codable + UserDefaults + FileManager</strong></td></tr>
+            <tr><td>Реактивность</td><td><strong>Combine (@Published)</strong></td></tr>
+            <tr><td>Потокобезопасность</td><td><strong>@MainActor</strong></td></tr>
+            <tr><td>Локальный сервер</td><td><strong>URLSession + HTTP Server</strong></td></tr>
+            <tr><td>Импорт файлов</td><td><strong>UIDocumentPickerViewController</strong></td></tr>
+            <tr><td>Импорт фото</td><td><strong>PHPickerViewController</strong></td></tr>
+          </tbody>
+        </table></div>
+        <h3>Паттерны проектирования</h3>
+        <ul>
+          <li><strong>MVVM</strong> — разделение логики (ViewModel) и отображения (View)</li>
+          <li><strong>Singleton</strong> — Settings и FileManagerService</li>
+          <li><strong>Observer</strong> — реактивные обновления через Combine</li>
+          <li><strong>Weak References</strong> — в FileNode для предотвращения утечек памяти</li>
+          <li><strong>NotificationCenter</strong> — межкомпонентная коммуникация</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="footer">
+  <span>© 2025 CodeBench — Beta v1.0.0 · NewBy-It Team</span>
+  <span>
+    <a href="https://codebench.newby-it.com" target="_blank" rel="noopener">codebench.newby-it.com</a>
+    &nbsp;·&nbsp;
+    <a href="https://codebench.newby-it.com/support" target="_blank" rel="noopener">
+      <span data-lang="en">Support</span>
+      <span data-lang="ru">Поддержка</span>
+    </a>
+  </span>
+</footer>
+
+<button class="back-top" aria-label="Back to top">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="18 15 12 9 6 15"/>
+  </svg>
+</button>
+
+<script src="script.js"></script>
+</body>
+</html>
