@@ -16,7 +16,10 @@ function setLang(lang) {
     ? 'CodeBench Wiki — Documentation'
     : 'CodeBench Wiki — Документация';
 
-  searchInput.placeholder = lang === 'en' ? 'Search keywords…' : 'Поиск по ключевым словам…';
+  const searchInput = document.getElementById('search-input');
+  if (searchInput) {
+    searchInput.placeholder = searchInput.dataset[`placeholder-${lang}`] || '';
+  }
 
   searchInput.value = '';
   hideResults();
@@ -45,24 +48,25 @@ const sidebar   = document.querySelector('.sidebar');
 const overlay   = document.querySelector('.sidebar-overlay');
 const hamburger = document.querySelector('.hamburger');
 
-const iconMenu = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>`;
-const iconClose = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`;
+// Replace SVG icons with span elements for animation
+hamburger.innerHTML = '<span></span><span></span><span></span>';
 
 function openSidebar() {
+  hamburger.classList.add('active');
   sidebar.classList.add('open');
   overlay.classList.add('open');
   document.body.style.overflow = 'hidden';
-  hamburger.innerHTML = iconClose;
 }
 
 function closeSidebar() {
+  hamburger.classList.remove('active');
   sidebar.classList.remove('open');
   overlay.classList.remove('open');
   document.body.style.overflow = '';
-  hamburger.innerHTML = iconMenu;
 }
 
-hamburger.addEventListener('click', () => {
+hamburger.addEventListener('click', (e) => {
+  e.stopPropagation();
   sidebar.classList.contains('open') ? closeSidebar() : openSidebar();
 });
 
@@ -161,8 +165,7 @@ function renderResults(hits, query) {
       searchInput.value = '';
       hideResults();
       if (window.innerWidth <= 768) {
-        sidebar.classList.remove('open');
-        overlay.classList.remove('open');
+        closeSidebar();
       }
     });
   });
@@ -180,7 +183,7 @@ searchInput.addEventListener('input', () => {
 });
 
 searchInput.addEventListener('keydown', e => {
-  if (e.key === 'Escape') { searchInput.value = ''; hideResults(); }
+  if (e.key === 'Escape') { searchInput.value = ''; hideResults(); searchInput.blur(); }
 });
 
 document.addEventListener('click', e => {
@@ -191,12 +194,16 @@ document.querySelectorAll('.copy-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const pre  = btn.closest('.code-wrap').querySelector('pre');
     const text = pre.innerText;
-    const copied = currentLang === 'en' ? 'Copied!' : 'Скопировано!';
-    const copy   = currentLang === 'en' ? 'Copy'    : 'Копировать';
+    const langData = {
+      en: { copy: 'Copy', copied: 'Copied!' },
+      ru: { copy: 'Копировать', copied: 'Скопировано!' }
+    };
+    const messages = langData[currentLang] || langData.en;
+
     navigator.clipboard.writeText(text).then(() => {
-      btn.textContent = copied;
+      btn.textContent = messages.copied;
       btn.classList.add('copied');
-      setTimeout(() => { btn.textContent = copy; btn.classList.remove('copied'); }, 2000);
+      setTimeout(() => { btn.textContent = messages.copy; btn.classList.remove('copied'); }, 2000);
     });
   });
 });
@@ -205,4 +212,5 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
   btn.addEventListener('click', () => setLang(btn.dataset.langTarget));
 });
 
+// Initial setup
 setLang(currentLang);
